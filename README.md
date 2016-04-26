@@ -1,13 +1,7 @@
-cynmap
-=======================
+DynmapNeptune
+=============
 
-### What is it?
-cynmap is a implementation of dynmap for CanaryLib.
+DynmapNeptune is an implementation of Dynmap for the Neptune implementation of CanaryLib.
 
 ### License
-I have chosen the MIT license for this project.
-
-### Links
-[CanaryLib](https://github.com/CanaryModTeam/CanaryLib)
-
-[dynmap](https://github.com/webbukkit/dynmap)
+DynmapNeptune is licensed under the MIT license.

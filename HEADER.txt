@@ -1,4 +1,4 @@
-The MIT License (MIT)
+This file is part of DynmapNeptune, licensed under the MIT License (MIT).
 
 Copyright (c) 2014-2016, Jamie Mansfield <https://github.com/jamierocks>
 
