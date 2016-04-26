@@ -29,8 +29,10 @@ import net.canarymod.Canary;
 import java.io.File;
 
 public class Constants {
+
     // Canary
     public static final File canary = Canary.getWorkingDirectory();
+
     // cynmap
     public static final File dataFolder = new File(canary, "cynmap");
 

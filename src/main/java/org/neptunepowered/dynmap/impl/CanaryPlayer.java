@@ -32,88 +32,109 @@ import org.dynmap.common.DynmapPlayer;
 import java.net.InetSocketAddress;
 
 public class CanaryPlayer implements DynmapPlayer {
+
     private Player player;
 
     public CanaryPlayer(Player player) {
         this.player = player;
     }
 
+    @Override
     public boolean hasPermissionNode(String perm) {
         return player.hasPermission(perm);
     }
 
+    @Override
     public boolean hasPrivilege(String priv) {
         return player.hasPermission(priv);
     }
 
+    @Override
     public boolean isConnected() {
         return player.isOnline();
     }
 
+    @Override
     public boolean isOp() {
         return Canary.ops().isOpped(player);
     }
 
+    @Override
     public void sendMessage(String msg) {
         player.message(msg);
     }
 
+    @Override
     public InetSocketAddress getAddress() {
         return new InetSocketAddress(player.getIP(), 0);
     }
 
+    @Override
     public int getArmorPoints() {
         return 0;
     }
 
+    @Override
     public DynmapLocation getBedSpawnLocation() {
         return new CanaryLocation(player.getSpawnPosition());
     }
 
+    @Override
     public String getDisplayName() {
         return player.getDisplayName();
     }
 
+    @Override
     public long getFirstLoginTime() {
         return 0;
     }
 
-    public int getHealth() {
-        return Math.round(player.getHealth());
+    @Override
+    public double getHealth() {
+        return player.getHealth();
     }
 
+    @Override
     public long getLastLoginTime() {
         return 0;
     }
 
+    @Override
     public DynmapLocation getLocation() {
         return new CanaryLocation(player.getLocation());
     }
 
+    @Override
     public String getName() {
         return player.getName();
     }
 
+    @Override
     public int getSortWeight() {
         return 0;
     }
 
+    @Override
     public String getWorld() {
         return player.getWorld().getName();
     }
 
+    @Override
     public boolean isInvisible() {
         return player.isInvisible();
     }
 
+    @Override
     public boolean isOnline() {
         return player.isOnline();
     }
 
+    @Override
     public boolean isSneaking() {
         return player.isSneaking();
     }
 
+    @Override
     public void setSortWeight(int arg0) {
 
     }

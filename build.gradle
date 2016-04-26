@@ -12,8 +12,8 @@ defaultTasks 'clean', 'licenseFormat'
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
-ext.dynmapVersion = '2.0.0-SNAPSHOT'
-ext.apiVersion = '1.1.2'
+ext.apiVersion = '1.2.1-SNAPSHOT'
+ext.dynmapVersion = '2.2-SNAPSHOT'
 
 group = 'org.neptunepowered'
 archivesBaseName = project.name.toLowerCase()
@@ -36,6 +36,14 @@ repositories {
     maven {
         name = 'mojang'
         url = 'https://libraries.minecraft.net'
+    }
+    maven {
+        name = 'mcstats-releases'
+        url = 'http://repo.mcstats.org/content/repositories/releases'
+    }
+    maven {
+        name = 'mcstats-snapshots'
+        url = 'http://repo.mcstats.org/content/repositories/snapshots'
     }
 }
 
