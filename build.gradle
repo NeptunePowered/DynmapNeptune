@@ -1,12 +1,29 @@
-plugins {
-    id 'java'
-
-    id 'idea'
-    id 'eclipse'
-
-    id 'net.minecrell.licenser' version '0.1.5'
-    id 'com.github.johnrengelman.shadow' version '1.2.3'
+buildscript {
+    repositories {
+        maven {
+            url = 'https://plugins.gradle.org/m2'
+        }
+        maven {
+            name = 'forge'
+            url = 'http://files.minecraftforge.net/maven'
+        }
+        maven {
+            name = 'minecrell'
+            url = 'http://repo.minecrell.net/releases'
+        }
+    }
+    dependencies {
+        classpath 'net.minecrell:VanillaGradle:2.0.3_1'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-20160116.192356-17'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
+        classpath 'gradle.plugin.net.minecrell:licenser:0.1.5'
+    }
 }
+
+apply plugin: 'net.minecrell.vanilla.server.library'
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'net.minecrell.licenser'
+
 defaultTasks 'clean', 'licenseFormat'
 
 sourceCompatibility = '1.8'
@@ -59,6 +76,14 @@ jar {
 license {
     header file('HEADER.txt')
     include '**/*.java'
+}
+
+minecraft {
+    version = '1.8.9'
+    mappings = 'snapshot_20160216'
+    runDir = 'run'
+
+    makeObfSourceJar = false
 }
 
 shadowJar {

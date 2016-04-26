@@ -28,7 +28,7 @@ import net.canarymod.Canary;
 import net.canarymod.api.Server;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.bansystem.Ban;
-import net.canarymod.chat.TextFormat;
+import net.canarymod.chat.ChatFormat;
 import net.canarymod.config.Configuration;
 import net.canarymod.exceptions.InvalidPluginException;
 import net.canarymod.exceptions.PluginLoadFailedException;
@@ -77,7 +77,7 @@ public class CanaryServer extends DynmapServerInterface {
 
     @Override
     public Set<String> checkPlayerPermissions(String playername, Set<String> perms) {
-        Set<String> permissions = new HashSet<String>();
+        Set<String> permissions = new HashSet<>();
         Player player = server.getPlayer(playername);
         if(!Canary.bans().isBanned(playername)) {
             for(String perm : perms) {
@@ -194,9 +194,9 @@ public class CanaryServer extends DynmapServerInterface {
         try {
             Canary.pluginManager().reloadPlugin("DynmapNeptune");
         } catch (PluginLoadFailedException e) {
-            Logman.getLogman("DynmapNeptune").error("Failed to reload", e);
+            this.plugin.getLogman().error("Failed to reload", e);
         } catch (InvalidPluginException e) {
-            Logman.getLogman("DynmapNeptune").error("Failed to reload", e);
+            this.plugin.getLogman().error("Failed to reload", e);
         }
     }
 
@@ -222,6 +222,6 @@ public class CanaryServer extends DynmapServerInterface {
 
     @Override
     public String stripChatColor(String s) {
-        return TextFormat.removeFormatting(s);
+        return ChatFormat.removeFormatting(s);
     }
 }

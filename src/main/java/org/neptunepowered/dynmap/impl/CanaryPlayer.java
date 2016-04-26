@@ -31,6 +31,10 @@ import org.dynmap.common.DynmapPlayer;
 import org.neptunepowered.dynmap.util.converter.LocationConverter;
 
 import java.net.InetSocketAddress;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class CanaryPlayer implements DynmapPlayer {
 
@@ -87,7 +91,14 @@ public class CanaryPlayer implements DynmapPlayer {
 
     @Override
     public long getFirstLoginTime() {
-        return 0;
+        DateFormat format = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+        Date firstJoined = null;
+        try {
+            firstJoined = format.parse(player.getFirstJoined());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return firstJoined.getTime();
     }
 
     @Override
@@ -97,7 +108,14 @@ public class CanaryPlayer implements DynmapPlayer {
 
     @Override
     public long getLastLoginTime() {
-        return 0;
+        DateFormat format = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+        Date lastJoined = null;
+        try {
+            lastJoined = format.parse(player.getLastJoined());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return lastJoined.getTime();
     }
 
     @Override

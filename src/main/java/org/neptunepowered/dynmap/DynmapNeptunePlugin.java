@@ -30,9 +30,11 @@ import net.canarymod.plugin.Plugin;
 import org.dynmap.DynmapCommonAPI;
 import org.dynmap.DynmapCommonAPIListener;
 import org.dynmap.DynmapCore;
+import org.dynmap.Log;
 import org.dynmap.common.DynmapListenerManager.EventType;
 import org.dynmap.markers.MarkerAPI;
 import org.dynmap.modsupport.ModSupportImpl;
+import org.neptunepowered.dynmap.impl.CanaryLogger;
 import org.neptunepowered.dynmap.impl.CanaryWorld;
 import org.neptunepowered.dynmap.data.Constants;
 import org.neptunepowered.dynmap.impl.CanaryServer;
@@ -51,10 +53,15 @@ public class DynmapNeptunePlugin extends Plugin implements DynmapCommonAPI {
 
     @Override
     public boolean enable() {
+        // set Logger
+        Log.setLogger(new CanaryLogger(this.getLogman()));
+
         // init server
         server = new CanaryServer(Canary.getServer(), this);
+
         // init data folder
         Constants.checkDirs();
+
         // init core
         if (core == null) {
             core = new DynmapCore();
