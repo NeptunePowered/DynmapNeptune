@@ -38,6 +38,7 @@ import org.neptunepowered.dynmap.impl.CanaryLogger;
 import org.neptunepowered.dynmap.impl.CanaryWorld;
 import org.neptunepowered.dynmap.data.Constants;
 import org.neptunepowered.dynmap.impl.CanaryServer;
+import org.neptunepowered.dynmap.util.helper.MinecraftHelper;
 
 import java.io.File;
 
@@ -67,14 +68,14 @@ public class DynmapNeptunePlugin extends Plugin implements DynmapCommonAPI {
             core = new DynmapCore();
         }
         core.setPluginJarFile(new File(getPath()));
-        core.setPluginVersion(getDescriptor().getVersion(), "CanaryLib");
+        core.setPluginVersion(getDescriptor().getVersion(), Canary.getImplementationTitle());
         core.setMinecraftVersion(Canary.getServer().getServerVersion());
         core.setDataFolder(Constants.DATA_DIRECTORY);
         core.setServer(server);
         core.setTriggerDefault(null);
-        core.setBiomeNames(null);
-        core.setBlockNames(null);
-        core.setBlockMaterialMap(null);
+        core.setBiomeNames(MinecraftHelper.getBiomeNames());
+        core.setBlockNames(MinecraftHelper.getBlockNames());
+        core.setBlockMaterialMap(MinecraftHelper.getBlockMaterialMap());
 
         // Load configuration
         if (!core.initConfiguration(config)) {
