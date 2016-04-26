@@ -22,12 +22,12 @@
  * THE SOFTWARE.
  */
 
-package unomodding.canary.cynmap;
+package org.neptunepowered.dynmap;
 
 import org.dynmap.common.DynmapListenerManager.EventType;
 
-import unomodding.canary.cynmap.implementation.CanaryPlayer;
-import unomodding.canary.cynmap.implementation.CanaryWorld;
+import org.neptunepowered.dynmap.impl.CanaryWorld;
+import org.neptunepowered.dynmap.impl.CanaryPlayer;
 import net.canarymod.hook.HookHandler;
 import net.canarymod.hook.player.ConnectionHook;
 import net.canarymod.hook.player.DisconnectionHook;
@@ -35,10 +35,10 @@ import net.canarymod.hook.system.LoadWorldHook;
 import net.canarymod.hook.system.UnloadWorldHook;
 import net.canarymod.plugin.PluginListener;
 
-public class CynmapListener implements PluginListener {
-    private CynmapPlugin plugin;
+public class DynmapNeptuneListener implements PluginListener {
+    private DynmapNeptunePlugin plugin;
 
-    public CynmapListener(CynmapPlugin plugin) {
+    public DynmapNeptuneListener(DynmapNeptunePlugin plugin) {
         this.plugin = plugin;
     }
 

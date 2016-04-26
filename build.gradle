@@ -1,0 +1,71 @@
+plugins {
+    id 'java'
+
+    id 'idea'
+    id 'eclipse'
+
+    id 'net.minecrell.licenser' version '0.1.5'
+    id 'com.github.johnrengelman.shadow' version '1.2.3'
+}
+defaultTasks 'clean', 'licenseFormat'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+ext.dynmapVersion = '2.0.0-SNAPSHOT'
+ext.apiVersion = '1.1.2'
+
+group = 'org.neptunepowered'
+archivesBaseName = project.name.toLowerCase()
+version = "$dynmapVersion-$apiVersion"
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'vi-repo'
+        url = 'http://repo.visualillusionsent.net/repository/internal'
+    }
+    maven {
+        name = 'vi-snapshots'
+        url = 'http://repo.visualillusionsent.net/repository/snapshots'
+    }
+    maven {
+        name = 'dynmap-repo'
+        url = 'http://repo.mikeprimm.com/'
+    }
+    maven {
+        name = 'mojang'
+        url = 'https://libraries.minecraft.net'
+    }
+}
+
+dependencies {
+    compile "net.canarymod:CanaryLib:$apiVersion"
+    compile "us.dynmap:DynmapCore:$dynmapVersion"
+}
+
+jar {
+    classifier = 'base'
+}
+
+license {
+    header file('HEADER.txt')
+    include '**/*.java'
+}
+
+shadowJar {
+    classifier = ''
+
+    dependencies {
+        include dependency('us.dynmap:DynmapCore')
+        include dependency('us.dynmap:DynmapCoreAPI')
+    }
+}
+
+artifacts {
+    archives shadowJar
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.13'
+}

@@ -1,4 +1,4 @@
-name=cynmap
-main-class=unomodding.canary.cynmap.CynmapPlugin
-author=UnoModding
-version=0.1
+name=DynmapNeptune
+main-class=org.neptunepowered.dynmap.DynmapNeptunePlugin
+author=Jamie Mansfield
+version=1.0.0-SNAPSHOT

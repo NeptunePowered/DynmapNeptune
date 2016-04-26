@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package unomodding.canary.cynmap.data;
+package org.neptunepowered.dynmap.data;
 
 import net.canarymod.Canary;
 

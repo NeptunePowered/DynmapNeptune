@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package unomodding.canary.cynmap;
+package org.neptunepowered.dynmap;
 
 import net.canarymod.Canary;
 import net.canarymod.api.world.World;
@@ -33,18 +33,18 @@ import org.dynmap.DynmapCore;
 import org.dynmap.common.DynmapListenerManager.EventType;
 import org.dynmap.markers.MarkerAPI;
 import org.dynmap.modsupport.ModSupportImpl;
-import unomodding.canary.cynmap.data.Constants;
-import unomodding.canary.cynmap.implementation.CanaryServer;
-import unomodding.canary.cynmap.implementation.CanaryWorld;
+import org.neptunepowered.dynmap.impl.CanaryWorld;
+import org.neptunepowered.dynmap.data.Constants;
+import org.neptunepowered.dynmap.impl.CanaryServer;
 
 import java.io.File;
 
-public class CynmapPlugin extends Plugin implements DynmapCommonAPI {
+public class DynmapNeptunePlugin extends Plugin implements DynmapCommonAPI {
     private DynmapCore core;
     private CanaryServer server;
     private CanaryEnableCoreCallback config = new CanaryEnableCoreCallback();
 
-    public CynmapPlugin() {
+    public DynmapNeptunePlugin() {
         ModSupportImpl.init();
     }
 
@@ -87,7 +87,7 @@ public class CynmapPlugin extends Plugin implements DynmapCommonAPI {
         }
 
         // Register listener
-        Canary.hooks().registerListener(new CynmapListener(this), this);
+        Canary.hooks().registerListener(new DynmapNeptuneListener(this), this);
         
         // Core is ready - notify API availability
         DynmapCommonAPIListener.apiInitialized(this);

@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package unomodding.canary.cynmap.implementation;
+package org.neptunepowered.dynmap.impl;
 
 import net.canarymod.api.world.DimensionType;
 import net.canarymod.api.world.World;
