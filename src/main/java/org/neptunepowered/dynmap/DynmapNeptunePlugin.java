@@ -1,7 +1,7 @@
 /*
  * This file is part of DynmapNeptune, licensed under the MIT License (MIT).
  *
- * Copyright (c) 2015-2016, Jamie Mansfield <https://github.com/jamierocks>
+ * Copyright (c) 2014-2016, Jamie Mansfield <https://github.com/jamierocks>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -40,6 +40,7 @@ import org.neptunepowered.dynmap.impl.CanaryServer;
 import java.io.File;
 
 public class DynmapNeptunePlugin extends Plugin implements DynmapCommonAPI {
+
     private DynmapCore core;
     private CanaryServer server;
     private CanaryEnableCoreCallback config = new CanaryEnableCoreCallback();
@@ -61,7 +62,7 @@ public class DynmapNeptunePlugin extends Plugin implements DynmapCommonAPI {
         core.setPluginJarFile(new File(getPath()));
         core.setPluginVersion(getDescriptor().getVersion(), "CanaryLib");
         core.setMinecraftVersion(Canary.getServer().getServerVersion());
-        core.setDataFolder(Constants.dataFolder);
+        core.setDataFolder(Constants.DATA_DIRECTORY);
         core.setServer(server);
         core.setTriggerDefault(null);
         core.setBiomeNames(null);
@@ -109,82 +110,102 @@ public class DynmapNeptunePlugin extends Plugin implements DynmapCommonAPI {
         return core;
     }
 
+    @Override
     public MarkerAPI getMarkerAPI() {
         return core.getMarkerAPI();
     }
 
+    @Override
     public boolean markerAPIInitialized() {
         return core.markerAPIInitialized();
     }
 
+    @Override
     public boolean sendBroadcastToWeb(String sender, String msg) {
         return core.sendBroadcastToWeb(sender, msg);
     }
 
+    @Override
     public int triggerRenderOfVolume(String wid, int minx, int miny, int minz, int maxx, int maxy, int maxz) {
         return core.triggerRenderOfVolume(wid, minx, miny, minz, maxx, maxy, maxz);
     }
 
+    @Override
     public int triggerRenderOfBlock(String wid, int x, int y, int z) {
         return core.triggerRenderOfBlock(wid, x, y, z);
     }
 
+    @Override
     public void setPauseFullRadiusRenders(boolean dopause) {
         core.setPauseFullRadiusRenders(dopause);
     }
 
+    @Override
     public boolean getPauseFullRadiusRenders() {
         return core.getPauseFullRadiusRenders();
     }
 
+    @Override
     public void setPauseUpdateRenders(boolean dopause) {
         core.setPauseFullRadiusRenders(dopause);
     }
 
+    @Override
     public boolean getPauseUpdateRenders() {
         return core.getPauseUpdateRenders();
     }
 
+    @Override
     public void setPlayerVisiblity(String player, boolean is_visible) {
         core.setPlayerVisiblity(player, is_visible);
     }
 
+    @Override
     public boolean getPlayerVisbility(String player) {
         return core.getPlayerVisbility(player);
     }
 
+    @Override
     public void assertPlayerInvisibility(String player, boolean is_invisible, String plugin_id) {
         core.assertPlayerInvisibility(player, is_invisible, plugin_id);
     }
 
+    @Override
     public void assertPlayerVisibility(String player, boolean is_visible, String plugin_id) {
         core.assertPlayerVisibility(player, is_visible, plugin_id);
     }
 
+    @Override
     public void postPlayerMessageToWeb(String playerid, String playerdisplay, String message) {
         core.postPlayerMessageToWeb(playerid, playerdisplay, message);
     }
 
+    @Override
     public void postPlayerJoinQuitToWeb(String playerid, String playerdisplay, boolean isjoin) {
         core.postPlayerJoinQuitToWeb(playerid, playerdisplay, isjoin);
     }
 
+    @Override
     public String getDynmapCoreVersion() {
         return core.getDynmapCoreVersion();
     }
 
+    @Override
     public boolean setDisableChatToWebProcessing(boolean disable) {
         return core.setDisableChatToWebProcessing(disable);
     }
 
+    @Override
     public boolean testIfPlayerVisibleToPlayer(String player, String player_to_see) {
         return core.testIfPlayerVisibleToPlayer(player, player_to_see);
     }
 
+    @Override
     public boolean testIfPlayerInfoProtected() {
         return core.testIfPlayerInfoProtected();
     }
 
+    @Override
     public void processSignChange(int blkid, String world, int x, int y, int z, String[] lines, String playerid) {
         core.processSignChange(blkid, world, x, y, z, lines, playerid);
     }

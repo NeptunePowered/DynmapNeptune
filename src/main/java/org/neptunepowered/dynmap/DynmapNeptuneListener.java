@@ -1,7 +1,7 @@
 /*
  * This file is part of DynmapNeptune, licensed under the MIT License (MIT).
  *
- * Copyright (c) 2015-2016, Jamie Mansfield <https://github.com/jamierocks>
+ * Copyright (c) 2014-2016, Jamie Mansfield <https://github.com/jamierocks>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -36,6 +36,7 @@ import net.canarymod.hook.system.UnloadWorldHook;
 import net.canarymod.plugin.PluginListener;
 
 public class DynmapNeptuneListener implements PluginListener {
+
     private DynmapNeptunePlugin plugin;
 
     public DynmapNeptuneListener(DynmapNeptunePlugin plugin) {

@@ -1,7 +1,7 @@
 /*
  * This file is part of DynmapNeptune, licensed under the MIT License (MIT).
  *
- * Copyright (c) 2015-2016, Jamie Mansfield <https://github.com/jamierocks>
+ * Copyright (c) 2014-2016, Jamie Mansfield <https://github.com/jamierocks>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,15 +22,21 @@
  * THE SOFTWARE.
  */
 
-package org.neptunepowered.dynmap.impl;
+package org.neptunepowered.dynmap.util.converter;
 
+import net.canarymod.Canary;
 import net.canarymod.api.world.position.Location;
-
+import net.canarymod.api.world.position.Position;
 import org.dynmap.DynmapLocation;
 
-public class CanaryLocation extends DynmapLocation {
+public final class LocationConverter {
 
-    public CanaryLocation(Location loc) {
-        super(loc.getWorldName(), loc.getX(), loc.getY(), loc.getZ());
+    public static Location of(DynmapLocation location) {
+        return new Location(Canary.getServer().getWorld(location.world),
+                new Position(location.x, location.y, location.z));
+    }
+
+    public static DynmapLocation of(Location location) {
+        return new DynmapLocation(location.getWorldName(), location.getX(), location.getY(), location.getZ());
     }
 }

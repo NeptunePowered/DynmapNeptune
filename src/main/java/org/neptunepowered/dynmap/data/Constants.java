@@ -1,7 +1,7 @@
 /*
  * This file is part of DynmapNeptune, licensed under the MIT License (MIT).
  *
- * Copyright (c) 2015-2016, Jamie Mansfield <https://github.com/jamierocks>
+ * Copyright (c) 2014-2016, Jamie Mansfield <https://github.com/jamierocks>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,17 +27,15 @@ package org.neptunepowered.dynmap.data;
 import net.canarymod.Canary;
 
 import java.io.File;
+import java.nio.file.Paths;
 
-public class Constants {
+public final class Constants {
 
-    // Canary
-    public static final File canary = Canary.getWorkingDirectory();
-
-    // cynmap
-    public static final File dataFolder = new File(canary, "cynmap");
+    public static final File DATA_DIRECTORY = Paths.get(
+            Canary.getWorkingDirectory().getAbsolutePath(), "config", "DynmapNeptune").toFile();
 
     public static void checkDirs() {
-        File[] folders = new File[] { dataFolder };
+        File[] folders = new File[]{DATA_DIRECTORY};
         for (File f : folders) {
             f.mkdirs();
         }

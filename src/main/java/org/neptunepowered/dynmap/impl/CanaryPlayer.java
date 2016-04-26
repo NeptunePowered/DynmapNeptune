@@ -1,7 +1,7 @@
 /*
  * This file is part of DynmapNeptune, licensed under the MIT License (MIT).
  *
- * Copyright (c) 2015-2016, Jamie Mansfield <https://github.com/jamierocks>
+ * Copyright (c) 2014-2016, Jamie Mansfield <https://github.com/jamierocks>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,6 +28,7 @@ import net.canarymod.Canary;
 import net.canarymod.api.entity.living.humanoid.Player;
 import org.dynmap.DynmapLocation;
 import org.dynmap.common.DynmapPlayer;
+import org.neptunepowered.dynmap.util.converter.LocationConverter;
 
 import java.net.InetSocketAddress;
 
@@ -76,7 +77,7 @@ public class CanaryPlayer implements DynmapPlayer {
 
     @Override
     public DynmapLocation getBedSpawnLocation() {
-        return new CanaryLocation(player.getSpawnPosition());
+        return LocationConverter.of(player.getSpawnPosition());
     }
 
     @Override

@@ -1,7 +1,7 @@
 /*
  * This file is part of DynmapNeptune, licensed under the MIT License (MIT).
  *
- * Copyright (c) 2015-2016, Jamie Mansfield <https://github.com/jamierocks>
+ * Copyright (c) 2014-2016, Jamie Mansfield <https://github.com/jamierocks>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -192,11 +192,11 @@ public class CanaryServer extends DynmapServerInterface {
     @Override
     public void reload() {
         try {
-            Canary.manager().reloadPlugin("cynmap");
+            Canary.pluginManager().reloadPlugin("DynmapNeptune");
         } catch (PluginLoadFailedException e) {
-            Logman.getLogman("cynmap").error("Failed to reload", e);
+            Logman.getLogman("DynmapNeptune").error("Failed to reload", e);
         } catch (InvalidPluginException e) {
-            Logman.getLogman("cynmap").error("Failed to reload", e);
+            Logman.getLogman("DynmapNeptune").error("Failed to reload", e);
         }
     }
 
