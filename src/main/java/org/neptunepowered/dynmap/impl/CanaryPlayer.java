@@ -102,7 +102,7 @@ public class CanaryPlayer implements DynmapPlayer {
 
     @Override
     public DynmapLocation getLocation() {
-        return new CanaryLocation(player.getLocation());
+        return LocationConverter.of(player.getLocation());
     }
 
     @Override
